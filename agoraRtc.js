@@ -103,8 +103,7 @@ function addLeaveHost() {
     localStreams.camera.stream.stop();
     localStreams.screen.stream.stop();
     let paneHost = document.getElementById("right-pane");
-    console.log(paneHost.firstChild)
-    paneHost.remove(paneHost.firstChild);
+    paneHost.remove(paneHost.firstChild.nextSibling);
     document.getElementById("remoteStreams").innerHTML = "";
     document.getElementById("HostStream").innerHTML = "";
     document.getElementById("ScreenStream").innerHTML = "";
