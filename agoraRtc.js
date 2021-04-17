@@ -88,20 +88,6 @@ function addParticipant(name) {
   }
 }
 
-function deleteHost(name) {
-  if (name.includes(hostId) ) {
-    
-  } else {
-    let remote = document.getElementById("remoteStreams");
-    let divSpan = document.getElementById(name + "-name");
-    console.log(divSpan);
-    if (divSpan === null) {
-      divSpan = document.getElementById(name + " (Host)-name");
-    }
-    remote.removeChild(divSpan);
-  }
-}
-
 function addLeaveHost() {
   let pane = document.getElementsByClassName("left-pane");
   let button = document.createElement("button");
@@ -117,7 +103,7 @@ function addLeaveHost() {
     localStreams.camera.stream.stop();
     localStreams.screen.stream.stop();
     let paneHost = document.getElementById("right-pane");
-    paneHost.remove(pane.childNodes.item(0));
+    paneHost.remove(paneHost.childNodes.item(0));
     document.getElementById("remoteStreams").innerHTML = "";
     document.getElementById("HostStream").innerHTML = "";
     document.getElementById("ScreenStream").innerHTML = "";
@@ -137,7 +123,7 @@ function addLeave() {
     localStreams.camera.stream.close();
     localStreams.camera.stream.stop();
     let paneHost = document.getElementById("right-pane");
-    paneHost.remove(pane.childNodes.item(0));
+    paneHost.remove(paneHost.childNodes.item(0));
     document.getElementById("remoteStreams").innerHTML = "";
     document.getElementById("HostStream").innerHTML = "";
     document.getElementById("ScreenStream").innerHTML = "";
