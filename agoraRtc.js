@@ -103,7 +103,7 @@ function addLeaveHost() {
     localStreams.camera.stream.stop();
     localStreams.screen.stream.stop();
     let paneHost = document.getElementById("right-pane");
-    paneHost.remove(paneHost.childNodes.item(0));
+    paneHost.remove(paneHost.firstChild);
     document.getElementById("remoteStreams").innerHTML = "";
     document.getElementById("HostStream").innerHTML = "";
     document.getElementById("ScreenStream").innerHTML = "";
@@ -123,7 +123,7 @@ function addLeave() {
     localStreams.camera.stream.close();
     localStreams.camera.stream.stop();
     let paneHost = document.getElementById("right-pane");
-    paneHost.remove(paneHost.childNodes.item(0));
+    paneHost.remove(paneHost.firstChild);
     document.getElementById("remoteStreams").innerHTML = "";
     document.getElementById("HostStream").innerHTML = "";
     document.getElementById("ScreenStream").innerHTML = "";
