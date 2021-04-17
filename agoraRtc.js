@@ -219,8 +219,7 @@ document.getElementById("join").onclick = async function () {
       let screenStream = AgoraRTC.createStream({
         streamID: uid,
         screen: true,
-        screenAudio: true,
-        audio: false,
+        audio: true,
         video: false,
         optimizationMode: "motion"
       });
@@ -269,8 +268,6 @@ document.getElementById("join").onclick = async function () {
     if (streamID.includes("123") && streamID.includes("screen")) {
       addHostScreenStream(streamID);
       mainStreamId = streamID;
-    } else {
-      
     }
 
     if (streamID !== mainStreamId && !streamID.includes("123")) {
