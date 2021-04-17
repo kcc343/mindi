@@ -88,11 +88,9 @@ function addParticipant(name) {
   }
 }
 
-function deleteParticipant(name) {
+function deleteHost(name) {
   if (name.includes(hostId) ) {
-    let pane = document.getElementById("right-pane");
-    let child = document.getElementById(name + " (Host)-name");
-    pane.remove(child);
+    
   } else {
     let remote = document.getElementById("remoteStreams");
     let divSpan = document.getElementById(name + "-name");
@@ -118,6 +116,8 @@ function addLeaveHost() {
     localStreams.screen.stream.close();
     localStreams.camera.stream.stop();
     localStreams.screen.stream.stop();
+    let paneHost = document.getElementById("right-pane");
+    paneHost.remove(pane.childNodes.item(0));
     document.getElementById("remoteStreams").innerHTML = "";
     document.getElementById("HostStream").innerHTML = "";
     document.getElementById("ScreenStream").innerHTML = "";
@@ -136,6 +136,8 @@ function addLeave() {
     await client.leave();
     localStreams.camera.stream.close();
     localStreams.camera.stream.stop();
+    let paneHost = document.getElementById("right-pane");
+    paneHost.remove(pane.childNodes.item(0));
     document.getElementById("remoteStreams").innerHTML = "";
     document.getElementById("HostStream").innerHTML = "";
     document.getElementById("ScreenStream").innerHTML = "";
@@ -219,7 +221,8 @@ document.getElementById("join").onclick = async function () {
       let screenStream = AgoraRTC.createStream({
         streamID: uid,
         screen: true,
-        audio: true,
+        screenAudio: true,
+        audio: false,
         video: false,
         optimizationMode: "motion"
       });
